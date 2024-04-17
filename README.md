@@ -20,6 +20,7 @@ To deploy and run this function in your AWS environment, follow these instructio
    git clone https://github.com/yourusername/fhir-lambda.git
    cd fhir-lambda
    ```
+
 2. Set up a virtual environment
 
 ```bash
@@ -33,29 +34,35 @@ source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 pip install -r requirements.txt
 
 ```
+
 **4. Set environment variables**
 
- Copy .env.example to .env and update the PostgreSQL database credentials and other necessary details.
+Copy .env.example to .env and update the PostgreSQL database credentials and other necessary details.
 
 **5. Deploy to AWS Lambda**
 
 You can use AWS CLI or any CI/CD pipeline to deploy the function to AWS Lambda.
 
-###Configuration
+### Configuration
+
 Make sure your Lambda function has access to the PostgreSQL database and is triggered correctly via API Gateway or another integration.
 
-###Usage
+### Usage
+
 Send a POST request with a JSON FHIR payload to the endpoint provided by AWS API Gateway linked to your Lambda function.
 
-###Example Request
-```json
+### Example Request
 
+```json
 {
   "body": "{\"resourceType\":\"Bundle\",\"type\":\"transaction\",\"entry\":[{\"resource\":{\"resourceType\":\"Patient\",\"name\":[{\"family\":\"Doe\",\"given\":[\"John\"]}],\"gender\":\"male\"}}]}"
 }
 ```
-###Development
+
+### Development
+
 Modify the Lambda function or its dependencies as required. For local testing, use the provided sample data in data/event1.json.
 
-###Contributing
+### Contributing
+
 Contributions are welcome! Please read the contributing guide on how to propose bugfixes, improvements, or open issues.
